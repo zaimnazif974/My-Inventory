@@ -67,7 +67,7 @@ link    : https://zaiminventory.adaptable.app
         4.  test_default_values mengecek apakah default values untuk category dan effect sesuai yang diharapkan
 
 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
-    ![Local Image]("C:\UI\SEM 3\PBP\Tugas\Tugas02\My-Inventory\bagan.png")
+    ![Github Logo]("https://github.com/zaimnazif974/My-Inventory/blob/470453733b1cf9e375c2ee01d6796f392ea4762a/bagan.png")
 
 3. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
     Alasan:
