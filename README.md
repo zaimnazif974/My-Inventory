@@ -66,6 +66,16 @@ link    : https://zaiminventory.adaptable.app
         3.  test_product_creation memeriksa apakah Item yang telah dibuat pada fungsi setUp sesuai dengan value yang diharapkan.
         4.  test_default_values mengecek apakah default values untuk category dan effect sesuai yang diharapkan
 
+    8. Deploy adaptable.io:
+        1. Login adaptable menggunakan akun github yang telah dimiliki (tempat proyek My_inventory disimpan)
+        2. Klik new app dan sambungkan dengan repositori tempat proyek ini disimpan
+        3. Memilih opsi python app template sebagai tempat deployment
+        4. memilih opsi PostgreSQL sebagai basis data yang digunakan
+        5. Menyesuaikan versi python sesuai dengan yang digunakan di device developer (saya)
+        6. Masukkan perintah python manage.py migrate && gunicorn <nama proyek>.wsgi (dalam kasus ini "My_inventory")
+        7. Masukkan nama domain situs
+        8. centang bagian HTTP Listener on Port kemudian klik Deploy App
+
 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
     ![Alt text](bagan-1.png)
 
