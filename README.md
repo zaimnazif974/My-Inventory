@@ -1,98 +1,142 @@
-Nama    : Zaim Aydin Nazif
-NPM     : 2206082524
-Kelas   : F
-link    : https://zaiminventory.adaptable.app
+**Nama    : Zaim Aydin Nazif**
+**NPM     : 2206082524**
+**Kelas   : F**
 
 
-1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
-    1. Membuat proyek Django baru:
-        1. Membuat dan mengaktifkan virtual environtment python pada direktori yang telah ditentukan dengan menjalankan perintah "python -m venv env" kemudian mengaktifkannya dengan perintah "env\Scripts\activate.bat" pada command prompt
 
-        2. Kemudian menyiapkan dependencies dengan membuat file "requirements.txt" yang berisikan:
-        - django
-        - gunicorn
-        - whitenoise
-        - psycopg2-binary
-        - requests
-        - urllib3
+TUGAS 03:
 
-        3. Memasang dependencies dengan perintah "pip install -r requirements.txt"
+**Apa perbedaan antara form POST dan form GET dalam Django?**
 
-        4. Membuat proyek Django baru bernama "My_Inventory" dengan perintah "django-admin startproject My_Inventory ."
+- GET:
+    1. Fungsi : Method ini memiliki fungsi utama untuk mengambil data dari database. Dapat digunakan untuk melakukan pencarian atau mengurutkan data.
+    2. Security: Method ini menambahkan data ke URL dalam bentuk parameter query string sehingga keamanan method ini tidak begitu baik bagi data-data yang bersifat sensitif karena data dapat dilihat dari browser history.
+    3. Kapasitas data: Memiliki batasan panjang data yang digunakan yakni 2,048 karakter.
+    4. Cache: request method GET disimpan dalam cache oleh browser. 
 
-        5. Kemudian merubah value variable ALLOWED_HOSTS menjadi " ["*"] " agar semua host dapat mengakses aplikasi web
+- POST:
+    1. Fungsi: Method ini memiliki fungsi utama untuk me-submit data ke database.Biasanya digunakan untuk mengubah data pada server (database) seperti membuat, meng-update, atau menghapus data
+    2. Security: data yang dikirim menggunakan method POST dikirim dalam bentuk request body yang menjadikannya lebih aman untuk data yang sensitif
+    3. Kapasitas data: tidak memiliki batasan untuk panjang data sehingga cocok digunakan untuk mengirim data dengan kapasitas yang besar.
+    4. caching: method POST tidak di-cache oleh browser.
 
-    2. Membuat aplikasi main:
+**Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?**
 
-        1. Aktifkan virtual environtment
+-XML:
+    1. Struktur data: menyimpan data dalam hierarki yang dapat disesuaikan. Terbentuk atas elemen, atribut, dan teks. COcok digunakan untuk mendefinisikan format data yang sesuai kebutuhan.
+    2. Penggunaan : digunakan untuk pertukaran data antar aplikasi dalam industri web services, RSS feeds, dll
+    3. Sintaks: Bersifat ketat. Menggunakan tag pembuka dan penutup yang harus sejajar. Contohnya: <field name="effect", type="CharField">effect</field>
 
-        2. Buat aplikasi bernama main dengan menjalankan perintah "python manage.py startapp <nama aplikasi>" (dalam kasus ini "main")
-        
-    3. Melakukan routing pada proyek agar dapat menjalankan aplikasi main:
+-JSON: 
+    1. Struktur data: data disajikan dalam bentuk pasangan "key-value" seperti dictionary dalam python.
+    2. Penggunaan: biasanya digunakan dalam webdevelopment dalam hal pertukaran data anatara server dan device(komputer).
+    3. Sintaks: disajikan dalam pasangan "key-value" key digunakan untuk mengakses value yang disimpan. Contoh: "effect" : "+10 health" ("effect" sebagai key dan "+10health" sebagai value).
 
-        1. Mendaftarkan aplikasi main ke dalam proyek dengan cara menambahkan "main" pada variable INSTALLED_APPS di dalam settings.py pada direktori proyek django (dalam kasus ini My_Inventory).
+-HTML:
+    1. Struktur data: dapat menyajikan data dan elemennya dalam bentuk tabel, form, dan paragraf.
+    2. Penggunaan: fiigunakan untuk membuat halaman web. Menyajikan data kepada pengguna.
+    3. Sintaks: menggunakan tag untuk mengelompokkan konten dan menentukan struktur halaman web. Contoh: "<h5>Name:</h5>"
 
-        2.  Selanjutnya, saya membuat sebuah template bernama "main.html" di dalam direktori baru bernama "templates" dalam aplikasi "main". File HTML ini akan berperan sebagai tampilan dasar HTML dari halaman yang akan menampilkan Inventory yang saya miliki nantinya
+**Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?**
 
-    4. Membuat model pada aplikasi main dengan nama Item dan memiliki atribut wajib:
+Alasan:
+    1. Mudah dibaca dan ditulis baik bagi manusia maupun mesin.
+    2. format pertukaran data yang ringan
+    3. data struktur yang mirip dengan JavaScript sehingga banyak digunakan pada aplikasi web yang menggunakan bahasa JavaScript.
+    4. JSON efisien dalam hal ukuran dan pemrosesan data. Sintaksnya yang ringkas menghasilkan muatan yang lebih kecil, mengurangi penggunaan bandwidth dan meningkatkan kecepatan transfer data.
+    5. JSON didukung oleh hampir semua bahasa pemrograman dan platform. Kompatibilitas dalam banyak bahasa ini menjadikannya pilihan serbaguna untuk bertukar data di antara sistem yang berbeda, apa pun bahasa pemrograman yang mereka gunakan.
+    6. JSON dianggap lebih aman daripada format lain, seperti XML, karena tidak memiliki fitur seperti document type definitions (DTD) dan referensi entitas eksternal yang dapat menyebabkan kerentanan keamanan, seperti serangan injeksi XML.
 
-        1. Membuat class Item pada models.py yang akan merepresantiskan entitas barang yang saya miliki dalam inventory saya.
+**Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step**
 
-        2. Membuat atribut-atribut berupa:
-            - name = models.CharField(max_length=255): Ini adalah sebuah CharField yang digunakan untuk menyimpan nama item. Maksimal panjang karakter yang diizinkan adalah 255 karakter.
-            - date_added = models.DateField(auto_now_add=True): Ini adalah sebuah DateField yang digunakan untuk menyimpan tanggal saat item ditambahkan ke basis data. Parameter auto_now_add=True mengindikasikan bahwa kolom ini akan diatur secara otomatis dengan tanggal saat item dibuat.
-            - ammount = models.IntegerField(): Ini adalah sebuah IntegerField yang digunakan untuk menyimpan jumlah barang. Ini mengizinkan Anda untuk menyimpan bilangan bulat.
-            - description = models.TextField(): Ini adalah sebuah TextField yang digunakan untuk menyimpan deskripsi barang. TextField cocok untuk menyimpan teks panjang tanpa batasan maksimum panjang karakter.
-            - effect = models.CharField(max_length=100, default='None'): Ini adalah CharField yang digunakan untuk menyimpan efek barang. Maksimal panjang karakter yang diizinkan adalah 100 karakter. Default value ('None') adalah nilai yang akan digunakan jika tidak ada nilai yang diset saat membuat instansi Item.
-            - category = models.CharField(max_length=100, default='Unknown'): Ini adalah CharField yang digunakan untuk menyimpan kategori barang. Seperti effect, maksimal panjang karakter adalah 100 karakter, dan default value ('Unknown') digunakan jika tidak ada nilai yang diset saat membuat instansi Item.
-        
-        3. Melakukan migrasi model dengan menjalankan perintah "python manage.py makemigrations" kemudian "python manage.py migrate" pada command prompt. langkah ini bertujuan untuk mengubah struktur tabel basis data sesuai dengan perubahan pada model yang saya buat.
+1. Sebelum saya membuat form input data kerangka (skeleton) agar setiap halaman web yang saya miliki memiliki template yang sama.
 
-    5. Membuat sebuah fungsi pada views.py untuk dikembalikan ke dalam sebuah template HTML:
+    1. saya membuat file "base.html" pada direktori templates. File tersebut nantinya akan menjadi dasar tampilan dari semua halaman web yang saya tampilkan. 
+    2. Kemudian, saya menambahkan kode "'DIRS': [BASE_DIR / 'templates']" pada variable "TEMPLATES" yang terletak di berkas "settings.py" agar file "base.html" terdeteksi sebagai berkas template.
+    3. Mengubah isi dari "main.html" sebelumnya agar sesuai dengan template baru "base.html"
 
-        1. menambahkan perintah "from django.shortcuts import render" untuk mengimport fungsi render dari modul django.shortcuts yang akan digunakan untuk merender tampilan HTML dari file "main.html" yang telah saya buat sebelumnya.
-        2. membuat fungsi "show_main" dengan parameter "request" yang berisikan dictionary context dengan key [name, class] dan value [Zaim Aydin Nazif, PBP F] (untuk sementara ini). Fungsi ini mereturn fungsi render dengan parameter request, "main.html, context untuk merender tampilan "main.html".
-        3. Ubah nama dan kelas yang sebelumnya dibuat secara statis menjadi key dari value yang telah dibuat dalam dictionary context pada file "views.py"
+2. Membuat form input data
 
-    6. Membuat sebuah routing pada urls.py aplikasi main untuk memetakan fungsi yang telah dibuat pada views.py.
-
-        1. melakukan konfigurasi routing URL untuk aplikasi "main" dengan membuat sebuah berkas bernama "urls.py" di dalam direktori "main". Berkas "urls.py" ini memiliki tanggung jawab untuk mengatur rute URL yang terkait langsung dengan aplikasi "main".
-        2.  mengonfigurasi routing URL pada tingkat proyek. Hal ini dilakukan dengan menambahkan rute URL yang akan mengarahkan pengguna ke tampilan "main". Rute URL ini ditambahkan ke dalam variabel "urlpatterns" yang terdapat dalam berkas "urls.py" di dalam direktori proyek "My_Inventory". Dengan adanya konfigurasi ini, proyek sekarang memiliki mekanisme yang jelas untuk mengarahkan permintaan URL pengguna ke tampilan yang sesuai di aplikasi "main".
-
-    7. Membuat unit test:
-        membuat 4 test yakni:
-        1.  test_main_url_is_exist adalah tes untuk mengecek apakah path URL /main/ dapat diakses.
-        2.  test_main_using_main_template adalah tes untuk mengecek apakah halaman /main/ di-render menggunakan template main.html.
-        3.  test_product_creation memeriksa apakah Item yang telah dibuat pada fungsi setUp sesuai dengan value yang diharapkan.
-        4.  test_default_values mengecek apakah default values untuk category dan effect sesuai yang diharapkan
-
-    8. Deploy adaptable.io:
-        1. Login adaptable menggunakan akun github yang telah dimiliki (tempat proyek My_inventory disimpan)
-        2. Klik new app dan sambungkan dengan repositori tempat proyek ini disimpan
-        3. Memilih opsi python app template sebagai tempat deployment
-        4. memilih opsi PostgreSQL sebagai basis data yang digunakan
-        5. Menyesuaikan versi python sesuai dengan yang digunakan di device developer (saya)
-        6. Masukkan perintah python manage.py migrate && gunicorn <nama proyek>.wsgi (dalam kasus ini "My_inventory")
-        7. Masukkan nama domain situs
-        8. centang bagian HTTP Listener on Port kemudian klik Deploy App
-
-2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
-    ![Alt text](bagan-1.png)
-
-3. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
-    Alasan:
-    1. Memungkinkan membuat lingkungan terisolasi sehingga dapat menghindari konflik antara versi paket yang berbeda dalam proyek lainnya
-    2. Memudahkan dalam mengelola dependensi proyek.
-    3. Virtual environment membantu melindungi sistem dari masalah yang mungkin terjadi akibat perubahan atau pembaruan paket Python.
+    1. membuat berkas "forms.py" pada direktori main untuk membuat struktur form.
+    2. membuat class "ItemForm" yang berisikan "class meta".
+    3. membuat variable "model" dengan value "Item" untuk agar data yang diambil dari form nantinya akan disimpan sebagai objek dari "Item"
+    4. membuat variable fields yang berisikan field dari model Item yang digunakan yakni "name", "ammount", "description", "effect", "category"
     
-    Kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environtment. Akan tetapi hal tersebut tidak disarankan karena dengan tidak menggunakan virtual environtment, kita lebih rentan untuk mendapatkan konflik antar paket dalam proyek-proyek yang kita buat. selain itu aplikasi django kita juga akan rentan akan masalah ketika ada pembaruan paket Python dan juga masalah terkait dependencies.
 
-4. MVC (Model-View-Controller), MVT (Model-View-Template), dan MVVM (Model-View-ViewModel) adalah arsitektur desain perangkat lunak yang digunakan untuk mengorganisir dan memisahkan berbagai komponen dalam aplikasi. 
+3.   Tambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
 
-- MVC menggunakan konsep controller untuk mengontrol update pada view ketika ada perubahan model
 
-- MVT View bertanggung jawab merender template yang akan menampilkan data yang dikelola oleh model untuk user sehingga tidak perlu adanya controller seperti yang ada dalam MVC
+    HTML:
+    1. menambahkan import "from django.http import HttpResponseRedirect", "from main.forms import ProductForm", "from django.urls import reverse", dan "from .models import Item" pada "views.py".
+    2. membuat fungsi bernama "create_item" pada berkas views.py yang menerima parameter request. membuat variable "form" yang berisikan "form = ItemForm(request.POST or None)" yang digunakan untuk membuat ItemForm baru dengan cara memasukkan QuerryDict berdasarkan input user. Mengecek kevalidan input untuk form dengan menggunakan "form.is_valid()" kemudian menyimpan form bila data yang diinput valid dengan "form.save()". Mengembalikan ke fungsi "show_main" dengan " return HttpResponseRedirect(reverse('main:show_main'))" apabila form berhasil disimpan.
+    3. Membuat berkas html baru "create_item.html" pada direktori templates untuk menampilkan halaman "Add Item".
+    4. Menambahkan variabel "items = Item.objects.all()" pada berkas "views.py" yang berfungsi untuk mengambil seluruh object Item yang tersimpan dalam database. Kemudian menambahkan " 'items' : items " pada context untuk menampilkan data terkait items yang ada dalam inventory.
+    5. Membuat table yang berisikan fields data dari objects yang ada pada database.
+    6. Menampilkan seluruh data dari objects Item yang ada di database beserta data fieldsnya dengan menggunakan loop "{% for item in items %}"
+    7. Membuat button untuk membuat item agar ketika ditekan dapat berpindah ke halaman create_item.
 
-- MVVM biasanya digunakan  dalam pengembangan aplikasi berbasis antarmuka pengguna (UI), terutama dalam pengembangan perangkat lunak berbasis platform seperti aplikasi mobile dan desktop. Berfungsi untuk merespon secara otomatis perubahan data yang ada dalam model.
+    XML:
+    1. Menambahkan import pada berkas "views.py" berupa:
+        - from django.http import HttpResponse
+        - from django.core import serializers
+    2. Membuat fungsi "show_xml(request)"
+    3. Membuat variabel "data = Item.objects.all()" pada fungsi yang telah dibuat untuk mendapatkan seluruh object Item yang ada dalam database.
+    4. Membuat return fungsi "return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")". Serializers berfungsi sebagai penerjemah objek Item menjadi format XML.
+
+    JSON:
+    1. Membuat fungsi "show_json(request)" pada berkas "views.py"
+    2. Membuat variabel "data = Item.objects.all()" pada fungsi yang telah dibuat untuk mendapatkan seluruh object Item yang ada dalam database.
+    3.Membuat return fungsi " return HttpResponse(serializers.serialize("json", data), content_type="application/json") ". Serializers berfungsi sebagai penerjemah objek Item menjadi format JSON.
+    
+    XML by ID:
+    1. Membuat fungsi "show_xml_by_id(request,id)" pada berkas "views.py"
+    2. Membuat variable "data = Item.objects.filter(pk=id)" untuk mendapatkan object Item dengan id yang dimasukkan.
+    3. Menambahkan return fungsi "return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")"
+
+    JSON by ID:
+    1. Membuat fungsi "show_xml_by_id(request,id)" pada berkas "views.py"
+    2. Membuat variable "data = Item.objects.filter(pk=id)" untuk mendapatkan object Item dengan id yang dimasukkan.
+    3. Menambahkan return fungsi " return HttpResponse(serializers.serialize("json", data), content_type="application/json") "
+    
+3. Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
+
+    HTML:
+    1. Mengimport fungsi "create_Item" yang telah dibuat pada "urls.py" yang ada dalam folder main.
+    2. Menambahkan path yakni "path('create-item', create_item, name='create_item')," agar ketika button "Add Item" yang berada dalam halaman utama ditekan dapat berpindah ke halaman untuk menambahkan item baru.
+    3. menambahkan return " return HttpResponseRedirect(reverse('main:show_main'))" pada fungsi "create_item" yang ada di dalam file views.py agar dapat kembali ke halaman utama tempat semua data ditampilkan setelah menekan tombol "Add Item"
+
+    XML :
+    1. Mengimport fungsi "show_xml" yang telah dibuat pada "urls.py" yang ada dalam folder main.
+    2. Menambahkan path yakni "path('xml/', show_xml, name='show_xml'), " agar data yang telah disimpan dapat dilihat di "http://localhost:8000/xml " dalam format xml.
+
+    JSON:
+    1. Mengimport fungsi "show_json" yang telah dibuat pada "urls.py" yang ada dalam folder main.
+    2. Menambahkan path yakni "path('xml/', show_json, name='show_json'), " agar data yang telah disimpan dapat dilihat di "http://localhost:8000/json " dalam format json.
+
+    XML by ID:
+    1. Mengimport fungsi "show_xml_by_id" yang telah dibuat pada "urls.py" yang ada dalam folder main.
+    2. Menambahkan path yakni "path('xml/<int:id>/', show_xml_by_id, name='show_xml_by_id')," agar data sesuai id yang diberikan dan telah disimpan dapat dilihat di "http://localhost:8000/xml/[id]" dalam format xml.
+
+    JSON by ID:
+    1. Mengimport fungsi "show_json_by_id" yang telah dibuat pada "urls.py" yang ada dalam folder main.
+    2. Menambahkan path yakni "path('json/<int:id>/', show_json_by_id, name='show_json_by_id')," agar data sesuai id dan telah disimpan dapat dilihat di "http://localhost:8000/json/[id]" dalam format json.
+
+**Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.**
+
+HTML: 
+![Alt text](create-image.png)
+
+XML:
+![Alt text](xml.png)
+
+JSON:
+![Alt text](json.png)
+
+XML by ID:
+![Alt text](xml-by-id.png)
+
+JSON by ID:
+![Alt text](json-by-id.png)
+
 
 
