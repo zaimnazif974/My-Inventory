@@ -1,10 +1,51 @@
 Nama    : Zaim Aydin Nazif
 NPM     : 2206082524
 Kelas   : F
-link    : https://zaiminventory.adaptable.app
+
 
 
 TUGAS 03:
+
+*Apa perbedaan antara form POST dan form GET dalam Django?*
+
+- GET:
+    1. Fungsi : Method ini memiliki fungsi utama untuk mengambil data dari database. Dapat digunakan untuk melakukan pencarian atau mengurutkan data.
+    2. Security: Method ini menambahkan data ke URL dalam bentuk parameter query string sehingga keamanan method ini tidak begitu baik bagi data-data yang bersifat sensitif karena data dapat dilihat dari browser history.
+    3. Kapasitas data: Memiliki batasan panjang data yang digunakan yakni 2,048 karakter.
+    4. Cache: request method GET disimpan dalam cache oleh browser. 
+
+- POST:
+    1. Fungsi: Method ini memiliki fungsi utama untuk me-submit data ke database.Biasanya digunakan untuk mengubah data pada server (database) seperti membuat, meng-update, atau menghapus data
+    2. Security: data yang dikirim menggunakan method POST dikirim dalam bentuk request body yang menjadikannya lebih aman untuk data yang sensitif
+    3. Kapasitas data: tidak memiliki batasan untuk panjang data sehingga cocok digunakan untuk mengirim data dengan kapasitas yang besar.
+    4. caching: method POST tidak di-cache oleh browser.
+
+*Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?*
+
+-XML:
+    1. Struktur data: menyimpan data dalam hierarki yang dapat disesuaikan. Terbentuk atas elemen, atribut, dan teks. COcok digunakan untuk mendefinisikan format data yang sesuai kebutuhan.
+    2. Penggunaan : digunakan untuk pertukaran data antar aplikasi dalam industri web services, RSS feeds, dll
+    3. Sintaks: Bersifat ketat. Menggunakan tag pembuka dan penutup yang harus sejajar. Contohnya: <field name="effect", type="CharField">effect</field>
+
+-JSON: 
+    1. Struktur data: data disajikan dalam bentuk pasangan "key-value" seperti dictionary dalam python.
+    2. Penggunaan: biasanya digunakan dalam webdevelopment dalam hal pertukaran data anatara server dan device(komputer).
+    3. Sintaks: disajikan dalam pasangan "key-value" key digunakan untuk mengakses value yang disimpan. Contoh: "effect" : "+10 health" ("effect" sebagai key dan "+10health" sebagai value).
+
+-HTML:
+    1. Struktur data: dapat menyajikan data dan elemennya dalam bentuk tabel, form, dan paragraf.
+    2. Penggunaan: fiigunakan untuk membuat halaman web. Menyajikan data kepada pengguna.
+    3. Sintaks: menggunakan tag untuk mengelompokkan konten dan menentukan struktur halaman web. Contoh: <h5>Name:</h5>
+
+*Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?*
+
+Alasan:
+    1. Mudah dibaca dan ditulis baik bagi manusia maupun mesin.
+    2. format pertukaran data yang ringan
+    3. data struktur yang mirip dengan JavaScript sehingga banyak digunakan pada aplikasi web yang menggunakan bahasa JavaScript.
+    4. JSON efisien dalam hal ukuran dan pemrosesan data. Sintaksnya yang ringkas menghasilkan muatan yang lebih kecil, mengurangi penggunaan bandwidth dan meningkatkan kecepatan transfer data.
+    5. JSON didukung oleh hampir semua bahasa pemrograman dan platform. Kompatibilitas dalam banyak bahasa ini menjadikannya pilihan serbaguna untuk bertukar data di antara sistem yang berbeda, apa pun bahasa pemrograman yang mereka gunakan.
+    6. JSON dianggap lebih aman daripada format lain, seperti XML, karena tidak memiliki fitur seperti document type definitions (DTD) dan referensi entitas eksternal yang dapat menyebabkan kerentanan keamanan, seperti serangan injeksi XML.
 
 *Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step*
 
@@ -83,7 +124,19 @@ TUGAS 03:
 *Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.*
 
 HTML: 
-![Alt text](image.png)
+![Alt text](create-image.png)
+
+XML:
+![Alt text](xml.png)
+
+JSON:
+![Alt text](json.png)
+
+XML by ID:
+![Alt text](xml-by-id.png)
+
+JSON by ID:
+![Alt text](json-by-id.png)
 
 
 
