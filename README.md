@@ -1,12 +1,12 @@
-Nama    : Zaim Aydin Nazif
-NPM     : 2206082524
-Kelas   : F
+**Nama    : Zaim Aydin Nazif**
+**NPM     : 2206082524**
+**Kelas   : F**
 
 
 
 TUGAS 03:
 
-*Apa perbedaan antara form POST dan form GET dalam Django?*
+**Apa perbedaan antara form POST dan form GET dalam Django?**
 
 - GET:
     1. Fungsi : Method ini memiliki fungsi utama untuk mengambil data dari database. Dapat digunakan untuk melakukan pencarian atau mengurutkan data.
@@ -20,7 +20,7 @@ TUGAS 03:
     3. Kapasitas data: tidak memiliki batasan untuk panjang data sehingga cocok digunakan untuk mengirim data dengan kapasitas yang besar.
     4. caching: method POST tidak di-cache oleh browser.
 
-*Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?*
+**Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?**
 
 -XML:
     1. Struktur data: menyimpan data dalam hierarki yang dapat disesuaikan. Terbentuk atas elemen, atribut, dan teks. COcok digunakan untuk mendefinisikan format data yang sesuai kebutuhan.
@@ -35,9 +35,9 @@ TUGAS 03:
 -HTML:
     1. Struktur data: dapat menyajikan data dan elemennya dalam bentuk tabel, form, dan paragraf.
     2. Penggunaan: fiigunakan untuk membuat halaman web. Menyajikan data kepada pengguna.
-    3. Sintaks: menggunakan tag untuk mengelompokkan konten dan menentukan struktur halaman web. Contoh: <h5>Name:</h5>
+    3. Sintaks: menggunakan tag untuk mengelompokkan konten dan menentukan struktur halaman web. Contoh: "<h5>Name:</h5>"
 
-*Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?*
+**Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?**
 
 Alasan:
     1. Mudah dibaca dan ditulis baik bagi manusia maupun mesin.
@@ -47,7 +47,7 @@ Alasan:
     5. JSON didukung oleh hampir semua bahasa pemrograman dan platform. Kompatibilitas dalam banyak bahasa ini menjadikannya pilihan serbaguna untuk bertukar data di antara sistem yang berbeda, apa pun bahasa pemrograman yang mereka gunakan.
     6. JSON dianggap lebih aman daripada format lain, seperti XML, karena tidak memiliki fitur seperti document type definitions (DTD) dan referensi entitas eksternal yang dapat menyebabkan kerentanan keamanan, seperti serangan injeksi XML.
 
-*Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step*
+**Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step**
 
 1. Sebelum saya membuat form input data kerangka (skeleton) agar setiap halaman web yang saya miliki memiliki template yang sama.
 
@@ -121,7 +121,7 @@ Alasan:
     1. Mengimport fungsi "show_json_by_id" yang telah dibuat pada "urls.py" yang ada dalam folder main.
     2. Menambahkan path yakni "path('json/<int:id>/', show_json_by_id, name='show_json_by_id')," agar data sesuai id dan telah disimpan dapat dilihat di "http://localhost:8000/json/[id]" dalam format json.
 
-*Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.*
+**Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.**
 
 HTML: 
 ![Alt text](create-image.png)
