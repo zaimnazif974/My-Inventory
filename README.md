@@ -65,9 +65,12 @@ Alasan:
 
 3.   Tambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
 
-
-    HTML:
-    1. menambahkan import "from django.http import HttpResponseRedirect", "from main.forms import ProductForm", "from django.urls import reverse", dan "from .models import Item" pada "views.py".
+    -HTML:
+    1. menambahkan import pada "views.py".:
+        1. "from django.http import HttpResponseRedirect" 
+        2. "from main.forms import ProductForm" 
+        3. "from django.urls import reverse"
+        4. "from .models import Item" 
     2. membuat fungsi bernama "create_item" pada berkas views.py yang menerima parameter request. membuat variable "form" yang berisikan "form = ItemForm(request.POST or None)" yang digunakan untuk membuat ItemForm baru dengan cara memasukkan QuerryDict berdasarkan input user. Mengecek kevalidan input untuk form dengan menggunakan "form.is_valid()" kemudian menyimpan form bila data yang diinput valid dengan "form.save()". Mengembalikan ke fungsi "show_main" dengan " return HttpResponseRedirect(reverse('main:show_main'))" apabila form berhasil disimpan.
     3. Membuat berkas html baru "create_item.html" pada direktori templates untuk menampilkan halaman "Add Item".
     4. Menambahkan variabel "items = Item.objects.all()" pada berkas "views.py" yang berfungsi untuk mengambil seluruh object Item yang tersimpan dalam database. Kemudian menambahkan " 'items' : items " pada context untuk menampilkan data terkait items yang ada dalam inventory.
@@ -75,7 +78,7 @@ Alasan:
     6. Menampilkan seluruh data dari objects Item yang ada di database beserta data fieldsnya dengan menggunakan loop "{% for item in items %}"
     7. Membuat button untuk membuat item agar ketika ditekan dapat berpindah ke halaman create_item.
 
-    XML:
+    -XML:
     1. Menambahkan import pada berkas "views.py" berupa:
         - from django.http import HttpResponse
         - from django.core import serializers
@@ -83,17 +86,17 @@ Alasan:
     3. Membuat variabel "data = Item.objects.all()" pada fungsi yang telah dibuat untuk mendapatkan seluruh object Item yang ada dalam database.
     4. Membuat return fungsi "return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")". Serializers berfungsi sebagai penerjemah objek Item menjadi format XML.
 
-    JSON:
+    -JSON:
     1. Membuat fungsi "show_json(request)" pada berkas "views.py"
     2. Membuat variabel "data = Item.objects.all()" pada fungsi yang telah dibuat untuk mendapatkan seluruh object Item yang ada dalam database.
     3.Membuat return fungsi " return HttpResponse(serializers.serialize("json", data), content_type="application/json") ". Serializers berfungsi sebagai penerjemah objek Item menjadi format JSON.
     
-    XML by ID:
+    -XML by ID:
     1. Membuat fungsi "show_xml_by_id(request,id)" pada berkas "views.py"
     2. Membuat variable "data = Item.objects.filter(pk=id)" untuk mendapatkan object Item dengan id yang dimasukkan.
     3. Menambahkan return fungsi "return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")"
 
-    JSON by ID:
+    -JSON by ID:
     1. Membuat fungsi "show_xml_by_id(request,id)" pada berkas "views.py"
     2. Membuat variable "data = Item.objects.filter(pk=id)" untuk mendapatkan object Item dengan id yang dimasukkan.
     3. Menambahkan return fungsi " return HttpResponse(serializers.serialize("json", data), content_type="application/json") "

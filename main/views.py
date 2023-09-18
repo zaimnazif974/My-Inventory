@@ -12,7 +12,8 @@ def show_main(request):
     context = {
         'name': 'Zaim Aydin Nazif',
         'class': 'PBP F',
-        'items' : items
+        'items' : items,
+        'quantity': len(items)
     }
 
     return render(request, "main.html", context)
