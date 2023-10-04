@@ -4,159 +4,191 @@
 
 **Kelas   : F**
 
-TUGAS 04:
+TUGAS 05:
 
-**Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?**
+**Manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.**
+1. Selector Universal `(*)` : Digunakan untuk memilih semua elemen pada halaman web. Digunakan untuk memberikan style dasar. Kita perlu hati-hati untuk menggunakan selector ini karena dapat mempengaruhi seluruh elemen yang ada pada halaman web.
 
-UserCreationForm adalah class bawaan dari Django yang digunakan untuk memudahkan untuk proses pembuatan form registrasi pengguna dan menyimpannya ke dalam database. Class ini memungkinkan developer untuk membuat form registrasi tanpa menulis kode dari awal.
+2. Selector Tag `(<p>, <h1>, <div>, dll.)`: digunakan untuk memilih semua elemen dengan tag HTML tertentu. Digunakan untuk mengatur style dasar elemen-elemen HTML seperti paragraf, judul, atau div.
 
-Kelebihan:
-1. Mudah diimplementasikan: UserCreationForm menyederhanakan proses pembuatan form registrasi tanpa tanpa menulis custom form registrasi dari nol.
+3. Selector Class `(.classname)` : Selector ini digunakan untuk memilih elemen-elemen yang memiliki class tertentu. Selector ini digunakan ketika menggabungkan elemen-elemen yang ingin diatur dengan gaya yang sama atau papa penerapan gaya pada suatu kelas.
 
-2. Integrasi: UserCreationForm terintegrasi dengan autentikasi bawaan yang disediakan oleh django, sehingga developer mudah dalam mengimplementasikan keduanya.
+4. Selector Id `(#idname)` : digunakan untuk memilih elemen dengan ID tertentu. Selector ini biasa digunakan untuk mengatur gaya atau perilaku khusus untuk elemen dengan ID tertentu.
 
-3. Validasi: UserCrationForm menyediakan fitur konfirmasi password, kompleksitas password, dan keunikan username yang dapat membantu untuk menyimpan dan mengamankan data bagi sisi developer dan memudahkan user untuk membuat akun yang aman dan unik.
+5. Selector Pseudo-class `(:pseudo-class)` : digunakan untuk memilih elemen berdasarkan keadaan atau interaksi pengguna. Digunakan untuk memberikan efek interaktif pada elemen.
 
-Kekurangan:
+6. Selector Pseudo-element `(::pseudo-element)` : Selector ini digunakan untuk memilih bagian khusus dari elemen, seperti bagian sebelum (:before) atau sesudah (:after) elemen, atau bahkan baris pertama (:first-line) dalam elemen teks. Selector ini dapat digunakan untuk mengatur gaya khusus untuk bagian-bagian elemen tertentu.
 
-1. Fields yang dibatasi: UserCreationFrom hanya memiliki fields untuk username, password1, dan password2. Jika developer ingin menambahkan fields data tambahan seperti email, nomor HP, alamat, dan lain-lain , maka developer harus membuat custom form sendiri.
+7. Selector kombinasi: selector ini memungkinkan untuk memilih elemen berdasarkan hubungan atau konteks mereka dalam dokumen, contohnya elemen yang berada dalam elemen lain (element1 element2).
 
-2. Tampilan default yang tidak sesuai: tampilan default UserCreationForm mungkin tidak sesuai dengan desain aplikasi web yang diinginkan oleh developer sehingga Ia perlu menghabiskan waktu untuk menyesuaikannya
+8. Selector Atribut `([attribute], [attribute=value], [attribute~=value])` :
+Selector ini memilih elemen berdasarkan atribut HTML mereka. Selector ini digunakan ketika ingin menargetkan elemen yang memiliki atribut tertentu atau nilai atribut tertentu.
 
-3. Tidak fleksibel: UserCreationForm tidak cocok diimplementasikan untuk aplikasi web yang memiliki sistem registrasi yang kompleks karena terbatasnya fields yang dimiliki.
+**Jelaskan HTML5 Tag yang kamu ketahui.**
+1. `<header>`: Digunakan untuk mendefinisikan bagian atas halaman atau elemen pembuka dalam sebuah artikel atau bagian konten.
 
-**Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?**
+2. `<nav>`: Menunjukkan bagian dari tautan navigasi seperti menu atau daftar tautan ke halaman lain.
 
-Autentikasi:
+3. `<section>`: Mengelompokkan konten yang terkait secara tematik dalam sebuah dokumen. section membantu mengorganisasi dan menjelaskan konten dalam dokumen.
 
-- Autentikasi adalah proses untuk mengidentifikasi user atau identitas. Proses ini menjawab pertanyaan "Kamu siapa?"
+4. `<article>`: Mengidentifikasi sebuah konten yang bisa berdiri sendiri dan bisa digunakan secara independen dari halaman lainnya, seperti posting blog atau artikel berita.
 
-- Dalam Django proses autentikasi dapat diimplementasikan menggunakan sistem autentikasi bawaan yakni autentikasi berdasarkan username & password, berdasarkan token, dan lain-lain. 
+5. `<aside>`: Mengandung konten yang berhubungan, tetapi bukan bagian utama dari halaman. aside sering digunakan untuk sidebar atau konten terkait lainnya.
 
-- Autentikasi mengatur sesi user dengan proses login-logout
+6. `<footer>`: Digunakan untuk mendefinisikan bagian bawah halaman atau elemen penutup dalam sebuah artikel atau bagian konten.
 
-Otorisasi:
+7. `<figure>` dan `<figcaption>`: `<figure>` digunakan untuk mengelompokkan elemen yang berhubungan, seperti gambar, grafik, atau ilustrasi, bersama dengan `<figcaption>` yang digunakan untuk memberikan deskripsi atau keterangan.
 
-- Otorisasi adalah proses untuk mengidentifikasi aksi atau data apa yang dapat diakses oleh seorang user dalam sebuah aplikasi. Proses ini menjawab pertanyaan "Kamu diizinkan untuk melakukan apa?"
+8. `<main>`: Menandakan elemen utama konten dalam sebuah dokumen. Hanya boleh ada satu elemen `<main>` dalam satu halaman.
 
-- Dalam Django proses otorisasi dapat diimplementasikan menggunakan sistem otorisasi dan perizinan yang telah disediakan oleh django. Sistem perizinan Django memungkinkan developer untuk menentukan siapa yang dapat melakukan aktivitas dan meangkses data dari aplikasi dan siapa yang tidak. 
+9. `<mark>`: Mewarnai teks di dalamnya untuk menyorot atau menandai teks yang relevan.
 
-autentikasi dan otorisasi adalah komponen fundamental dari pengembangan web di Django. Keduanya membantu membangun kepercayaan, melindungi data, dan memberikan pengalaman yang dipersonalisasi dan aman bagi user. Ketika diimplementasikan dengan benar, keduanya berkontribusi pada kesuksesan dan fungsionalitas aplikasi web yang akan kita kembangkan.
+10. `<time>`: Digunakan untuk menandai tanggal atau waktu dalam berbagai format, seperti tanggal, waktu, atau zona waktu.
 
-**Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?**
+**Jelaskan perbedaan antara margin dan padding.**
+- margin:
+    Margin adalah area kosong yang ada di sekeliling batas sebuah elemen. Margin berfungsi untuk mengatur jarak antara elemen dengan elemen lain di sekitarnya. Dengan menggunakan margin, Anda dapat mengendalikan jarak antara elemen-elemen, menciptakan pemisahan visual antara elemen-elemen, atau mengelola tata letak secara keseluruhan.
 
-Cookies adalah data kecil yang disimpan oleh browser web pada perangkat user. Cookies digunakan dalam konteks aplikasi web untuk menyimpan informasi di sisi klien, seperti preferensi user, ID sesi, token otentikasi, dan banyak lagi. Cookies berguna untuk melacak informasi antar permintaan HTTP dan memungkinkan aplikasi untuk mengenali user saat mereka kembali.
+- padding:
+    adalah ruang di dalam batas elemen. Padding akan mempengaruhi jarak antara isi elemen dan batas elemen itu sendiri. Padding digunakan untuk mengatur jarak antara suatu konten elemen dan batas elemen tersebut.
 
-Bagaiamana django menggunakan cookies untuk mengelola data sesi user:
+**Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?**
+1. Desain:
+    - Bootstrap: Bootstrap adalah framework CSS yang bersifat lebih preskriptif. Ini berarti Bootstrap memiliki style bawaan yang lebih banyak dan komponen yang telah dirancang dengan baik, dan kita cukup menggunakannya sesuai dengan panduan yang diberikan.
 
-1. Ketika user masuk ke aplikasi web Django, kredensial user (misalnya, username dan password) diverifikasi oleh sistem autentikasi aplikasi.
+    -Tailwind CSS: Tailwind CSS adalah framework yang lebih terfokus pada utilitas. Ini berarti kita perlu membuat komponen kita sendiri dengan menggabungkan kelas-kelas utilitas yang disediakan oleh Tailwind. Hal ini menyebabkan desain dari tailwind lebih fleksibel.
 
-2. Setelah autentikasi berhasil, Django membuat sesi untuk usesr. Sesi pada dasarnya adalah sekumpulan data yang disimpan di server dan diasosiasikan dengan user.
+2. Kustomisasi:
+    - Bootstrap: : Bootstrap memiliki opsi kustomisasi, tetapi untuk melakukan penyesuaian yang signifikan, kita perlu merombak CSSnya.
 
-3. ID sesi yang unik dibuat untuk sesi user. ID sesi ini adalah identifier acak dan unik.
+    - Tailwind CSS: kita dapat mengatur setiap aspek desain dengan mengedit file kongigurasi atau kita dapat membuat kelas kustom tersendiri.
 
-4. Data sesi disimpan di server, dan cookie ID sesi dikirim ke browser user. Cookie ini biasanya diberi nama seperti sessionid dan berisi ID sesi yang unik.
+3. Kecepatan pengembangan:
+    - Bootstrap : Lebih cepat karena banyak komponen-komponen yang sudah disediakan.
 
-5. Pada permintaan HTTP berikutnya, browser user secara otomatis mengirimkan cookie ID sesi ke server. Hal ini memungkinkan server mengenali user dan mengaitkan request dengan sesi mereka.
+    - Tailwind CSS : Memerlukan waktu yang lebih lama karena kita harus membuat komponen dari awal.
 
-6. Data sesi digunakan untuk menentukan apakah user memiliki izin untuk mengakses sumber daya atau tampilan tertentu. Sistem izin Django, yang sering kali terkait dengan data sesi, dapat mengontrol akses ke berbagai bagian aplikasi.
+Kapan kita menggunakan Bootstrap:
+1. Ketika kita perlu membangun prototipe atau mengembangkan dengan cepat karena Bootstrap menyediakan banyak komponen siap pakai.
 
-7.Ketika user keluar, sesi biasanya dihancurkan, dan cookie ID sesi dihapus dari device user.
+2. Tidak ingin menggunakan banyak kustomisasi visual dan lebih memilih kustomisasi yang sudah disediakan oleh Bootstrap
 
-8. Sesi memiliki periode waktu habis (dikontrol oleh pengaturan SESSION_COOKIE_AGE di Django). Setelah periode tidak aktif ini, sesi akan kedaluwarsa, dan user harus login kembali.
 
-**Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?**
+Kapan kita menggunakan Tailwind:
+1. Ketika ingin website kita fleksibel dalam hal desain dan tampilan yang sangat mendetail.
 
-Penggunaan cookies dalam pengembangan web dapat menjadi alat yang kuat untuk mengelola sesi pengguna, otentikasi, dan menyimpan preferensi pengguna. Namun, ada sejumlah risiko potensial yang perlu diwaspadai:
+2. Ingin membangun komponen dari awal
 
-1. Keamanan Data: Cookies dapat menyimpan informasi pribadi, seperti token otentikasi, yang dapat menjadi sasaran peretasan jika tidak disimpan dengan benar.
+3. Ingin mengurangi ukuran file CSS yang dihasilkan dan hanya menggunakan apa yang dibutuhkan
 
-2. Privasi Pengguna: Cookies dapat digunakan untuk melacak perilaku pengguna di seluruh situs web. Hal ini menimbulkan masalah privasi, terutama jika pengguna merasa terlalu banyak data mereka disimpan dan digunakan tanpa izin.
-
-3. CSRF (Cross-Site Request Forgery): Cookies yang disimpan dalam browser dapat digunakan untuk mengotorisasi permintaan HTTP ke aplikasi. Ini dapat dimanfaatkan oleh serangan CSRF jika tindakan mitigasi tidak diambil.
-
-4. XSS (Cross-Site Scripting): Serangan XSS dapat mencuri data sesi dari cookie pengguna. Ini terjadi jika aplikasi tidak mengamankan data yang masuk ke dalam cookie.
-
-5. Peretasan: Penjahat siber dapat mencoba mencuri cookie pengguna dengan berbagai cara, termasuk serangan perangkat lunak berbahaya dan peretasan jaringan.
 
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
 
-1. Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
+- menambahkan script Bootstrap CSS dan JavaScript pada `base.html` 
 
-    Registrasi:
+```html
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+J4jsl5c9zdLKaUk5Ae5f5b1bw6AUn5f5v8FZJoMxm6f5cH1" crossorigin="anonymous"></script>
 
-    1. Mengimport 'redirect', 'UserCreationForm', dan 'messages' pada views.py. Fungsi 'redirect' digunakan untuk mengembalikan tampilan dari bagian register akun. 'UserCreation' merupakan formulir bawaan yang disediakan oleh django sehingga saya tidak perlu membuat kode untuk form dari awal. 'messages' digunakan untuk menampilkan pesan bila user berhasil membuat akun.
+```
 
-    2. Membuat fungsi baru bernama 'register' yang menerima parameter 'request'. Fungsi ini berisi 'form = UserCreationForm(request.POST)' yang berfungsi untuk menampilkan form yang telah diimport dan memasukkan data ke server atau database sesuai dengan data yang diinput oleh user. Kemudian apabila data pada form yang diinput user valid, maka form tersebut akan disimpan dan mengeluarkan pesan menggunakan 'message.success'. Setelah user berhasil membuat akun baru, maka tampilan web akan kembali ke halaman login.
+- Menambahkan navbar pada `edit_item.html`, `main.html`, `create_item.html` menggunakan navbar yang ada pada bootsrap.
+```html
+<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">My Inventory</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+     
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class= "navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">{{name}}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">{{class}}</a>
+            </li>
+          </ul>
 
-    3. Membuat berkas HTML bernama 'register.html' pada 'main/templates' untuk membuat template halaman register akun.
+        <ul class="nav justify-content-end">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </ul>
+      </div>
+    </div>
+  </nav> 
+```
+- membuat tabel untuk item pada `main.html` dengan style "table-striped" dan "table-hover". Kemudian membuat garis pemisah antara nama field dan itemnya menggunakan "table-groupdivider"
 
-    4. Mengimport fungsi 'register' pada 'main/urls.py.' kemudian mendaftarkan fungsi tersebut pada 'urlpatterns' agar ketika tombol register ditekan oleh user, maka halaman web akan berpindah ke halaman register dan menjalankan fungsi register.
+```html
+<table class="table table-striped table-hover">
+    <tr>
+        <th>Name</th>
+        <th>Ammounts</th>
+        <th>Description</th>
+        <th>Date Added</th>
+        <th>Effect</th>
+        <th>Category</th>
+        <th>Action</th>
+    </tr>
 
-    Login:
+    <tbody class="table-group-divider">
+        {% for item in items %}
+            <tr>
+                <td>{{item.name}}</td>
+                <td>{{item.ammount}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.date_added}}</td>
+                <td>{{item.effect}}</td>
+                <td>{{item.category}}</td>
+                <td>
+                    <a href="{% url 'main:edit_item' item.pk %}">
+                        <button button type="button" class="btn btn-warning">
+                            Edit
+                        </button>
+                    </a>
+                    <a href="{% url 'main:delete_item' item.pk %}">
+                        <button type="button" class="btn btn-danger">
+                            Delete
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+```
+- Mengubah warna button-button yang ada pada `main.html` menggunakan variasi class button yang ada pada Bootstrap. Contohnya:
 
-    1. Mengimport 'authenticate' dan 'login' pada 'views.py' untuk melakukan autentikasi user dan login apabila autentikasi berhasil.
+```html
+<button button type="button" class="btn btn-warning">
+    Edit
+</button>
 
-    2. Membuat fungsi 'login_user' pada views.py dan melakukan autentikasi username dan password yang diinput oleh user dengan membuat variable 'user = authenticate (request, username=username, password=password)'. Fungsi authenticate akan mengautentikasi user berdasarkan username dan password yang dimasukkan. 
+<button type="button" class="btn btn-danger">
+    Delete
+</button>
+```
+- Membuat container mt-4 untuk `login.html`, `edit_item.html`, `register.html`, dan `create_item.html` kemudian membuat class yang akan menampung komponen2 yang ada. Kemudian membuat text dan table komponen berada di tengah menggunakan "text-center" untuk text dan "mx-auto" tabel
 
-    3. Membuat berkas HTML bernama 'login.html' pada 'main/templates' untuk membuat template halaman login akun.
-
-    4. Mengimport fungsi 'login_user' yang telah dibuat ke dalam 'main/urls.py'. Kemudian mendaftarkan fungsi pada 'urlpatterns'
-
-    Logout:
-
-    1. Mengimport 'logout' 'pada views.py' berfungsi untuk melogout user yang telah login pada session.
-
-    2. Membuat fungsi 'logout_user' views.py dan melogout pengguna pada session menggunakan perintah 'logout(request)' dan mengembalikan halaman website ke halaman login menggunakan 'return redirect('main:login')'
-
-    3. Menambahkan button 'Logout' pada 'main/templates/main.html/'
-
-    4. Mengimport fungsi 'logout_user' yang telah dibuat ke dalam 'main/urls.py'. Kemudian mendaftarkan fungsi tersebut pada 'urlpatterns'
-
-    Mengharuskan user untuk login:
-
-    Untuk mewajibkan user login terlebih dahulu, maka saya merestriksi halaman main dengan cara berikut:
-
-    1. Mengimport 'login_required' pada 'main/views.py' 
-
-    2. Menambahkan perintah '@login_required(login_url='/login')' tepat diatas fungsi 'show_main' untuk merestriksi user mengakses halaman main ketika belum login.
-
-2. Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.
-
-    1. Mengimport 'datetime' , 'HttpResponseRedirect', 'reverse' pada 'main/views.py'
-
-    2. Menambahkan perintah 'response = HttpResponseRedirect(reverse("main:show_main")) ' dan 'response.set_cookie('last_login', str(datetime.datetime.now()))' di bawah 'login(request, user)' yang berada pada fungsi 'login_user'. Perintah 'response.set_cookie('last_login', str(datetime.datetime.now()))' digunakan untuk membuat cookie last login dan menambahkannya ke dalam variable 'response' yang telah dibuat.
-
-    3. Menambahkan kode " 'last_login': request.COOKIES['last_login']," pada 'context' untuk menambahkan informasi cookie last_login.
-
-    4. Menambahkan perintah 'response = HttpResponseRedirect(reverse('main:login'))
-
-    response.delete_cookie('last_login')' di bawah 'logout(request)' yang berada pada fungsi 'logout_user' untuk menghapus cookie last_login ketika user logout.
-
-    5. Menambahkan informasi cookies last login pada main.html
-
-3.  Menghubungkan model Item dengan User.
-
-    1. Mengimport 'user' pada 'main/models.py'
-
-    2. Menambahkan variable user pada class 'Item' dengan value 'models.ForeignKey(User, on_delete=models.CASCADE)' pada 'main/models.py'. Hal tersebut dilakukan untuk menghubungkan satu item dengan satu user menggunakan relationship sehingga setiap item pasti akan berkaitan dengan seorang user.
-
-    3. Menambahkan 'item = form.save(commit=False)', 'item.user = request.user', dan 'item.save()' pada fungsi 'create_item' yang berada pada 'main/views.py'. Saya menggunakan parameter 'commit=False' untuk mencegah Django agar tidak langsung menyimpan object form yang telah saya buat ke database sehingga saya dapat mengaitkannya dengan user terlebih dahulu menggunakan 'item.user = request.user'. Perintah itu menandakan bahwa item yang baru saja dibuat dimiliki oleh user yang sedang login pada session ini. Kemudian saya baru menyimpan item pada database menggunakan 'item.save()'
-
-    4. Mengganti '.all()' pada variable items menjadi 'filter(user=request.user)'. Hal ini saya lakukan agar item yang tampil di halaman utama hanyalah item yang terasosiasikan oleh pengguna (dimiliki pengguna). Mengganti value dari key 'name' pada context dengan 'request.user.username' untuk menampilkan username dari user yang login pada session ini.
-
-    5. Membuat migration baru dan menetapkan default value untuk field user. Kemudian melakukan migrasi.
-
-4. Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.
-
-    
-
-    1. Menjalankan server menggunakan perintah 'python manage.py runserver'
-
-    2. Membuat 2 akun berbeda dengan menekan tombol register.
-
-    3. Login pada salah satu akun kemudian membuat item sebanyak 3.
-
-    4. Login pada akun lainnya dan membuat item sebanyak 3 (yang berbeda dengan item pada akun pertama).
-
-    5. Dapat dilihat bahwa tampilan pada halaman tiap akun akan berbeda. Nama yang ditampilkan merupakan username dari tiap akun dan item yang ditampilkan hanyalah item yang dibuat pada tiap akun (tidak tercampur semuanya).
+```html
+<div class="container mt-4">
+    <div class="editItem text-center">
+        <h1>Edit Item</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <table class="mx-auto">
+                {{ form.as_table }}
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Edit Item"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+```
