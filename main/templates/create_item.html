@@ -27,11 +27,11 @@
       </div>
     </div>
   </nav>
-  
+
 <div class="container mt-4">
     <div class="add-item text-center">
         <h1>Add New Item</h1>
-    </div>
+    
     <form method="POST">
     {% csrf_token %}
     <table class="mx-auto">
@@ -43,7 +43,8 @@
             </td>
         </tr>
     </table>
-</form>
+    </form>
+    </div>
 </div>
 
 

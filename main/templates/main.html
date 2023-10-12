@@ -1,5 +1,14 @@
 {% extends 'base.html' %}
 
+{% block meta %}
+    <style>
+        #item_collection {
+            margin-right: 5px;
+            margin-left: 5px;
+        }
+    </style>
+{% endblock meta %}
+
 {% block content %}
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
@@ -35,7 +44,7 @@
         </blockquote>
     </figure>
 
-    <table class="table table-striped table-hover">
+    <!-- <table class="table table-striped table-hover">
     <tr>
         <th>Name</th>
         <th>Ammounts</th>
@@ -71,7 +80,54 @@
         {% endfor %}
     </tbody>
     
-</table>
+</table> -->
+<div id="item_collection" class="row row-cols-3 row-cols-md-2 g-4"></div>
+<br/>
+
+<div class = "m-2 text-black d-flex flex-column align-items-center justify-content-center">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Product</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form" onsubmit="return false;">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="col-form-label">Name: </label>
+                            <input type="text" class="form-control" id="name" name="name"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="price" class="col-form-label">Ammount: </label>
+                            <input type="number" class="form-control" id="ammount" name="ammount"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="category" class="col-form-label">Category: </label>
+                            <input type="text" class="form-control" id="category" name="category"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="effect" class="col-form-label">Effect: </label>
+                            <input type="text" class="form-control" id="effect" name="effect"></input>
+                        </div>
+                        <div>
+                            <label for="description" class="col-form-label">Description: </label>
+                            <textarea class="form-control" id="description" name="description"></textarea>
+                        </div>
+                        
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
 <figure>
     <figcaption class="blockquote-footer">
         Sesi terakhir login: {{last_login}}
@@ -82,11 +138,71 @@
         Add New Item
     </button>
 </a>
-
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Item by AJAX</button>
 <a href="{% url 'main:logout' %}">
     <button type="button" class="btn btn-danger">
         Logout
     </button>
 </a>
+
+<script>
+    async function getItems() {
+        return fetch("{% url 'main:get_items_json' %}").then((res) => res.json())
+    }
+    async function refreshItems() {
+        const itemCards = document.getElementById("item_collection");
+        itemCards.innerHTML = "";
+        
+        const items = await getItems()
+        let htmlString =  items.forEach((item) => {
+            const card = document.createElement("div")
+            card.classList.add("col-md-4")
+            card.innerHTML = `
+            <div class="card text-bg-light border-info mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">${item.fields.name}</h5>
+                    <div class="card-text">
+                        <p><b> Date Added : </b>${item.fields.date_added}</p>
+                        <p><b> Ammount : </b>${item.fields.ammount}</p>
+                        <p><b> Effect : </b>${item.fields.effect}</p>
+                        <p><b> Category : </b>${item.fields.category}</p>
+                        <b>Description:</b>
+                        <p>${item.fields.description}</p>
+                    </div>
+                </div>
+            
+                <div class="card-footer d-flex align-items-center justify-content-center">
+                    <a href="edit-item/${item.pk}">
+                        <button class="btn btn-warning">
+                            Edit
+                        </button>
+                        <a href="delete/${item.pk}">
+                        <button class="btn btn-danger">
+                            delete
+                        </button>
+                </div>
+            </div>
+            `;
+
+            itemCards.appendChild(card);
+           
+        })
+    }
+
+    refreshItems()
+
+    function additem() {
+        fetch("{% url 'main:add_ajax' %}", {
+            method: "POST",
+            body: new FormData(document.querySelector('#form'))
+        }).then(refreshItems)
+
+        document.getElementById("form").reset()
+        return false
+    }
+
+    document.getElementById("button_add").onclick = additem
+</script>
+
 
 {% endblock content %}
