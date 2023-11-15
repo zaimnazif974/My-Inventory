@@ -175,6 +175,6 @@ async function refreshItems() {
 
 - CollectStatic
 
-1. menjalankan environment
+1. menjalankan environment python
 
 2. melakukan perintah `python manage.py collectstatic` sehingga file static yang ada akan dimasukkan pada direktori yang telah ditentukan pada `STATIC_ROOT`
